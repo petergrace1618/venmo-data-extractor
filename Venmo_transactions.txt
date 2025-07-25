@@ -1,0 +1,42 @@
+VENMO TRANSACTIONS BETWEEN @PETER-GRACE-16 AND @AMANDA-RUIZ-139
+FROM FEBRUARY 2023 TO NOVEMBER 2024
+
+(The source code and data of the following report can be found here:
+https://github.com/petergrace1618/venmo-data-extractor.git)
+
+Datetime, From, To, Amount (total), Note
+----------------------------------------------------------------
+Jun 28 2023, Amanda Ruiz, Peter Grace, + $65.00, Geisha classes
+Sep 05 2023, Amanda Ruiz, Peter Grace, + $367.00, Rent
+Oct 27 2023, Amanda Ruiz, Peter Grace, + $70.00, Love
+Dec 06 2023, Amanda Ruiz, Peter Grace, + $465.00, December Rent
+Jan 26 2024, Peter Grace, Amanda Ruiz, - $200.00, phone
+Feb 02 2024, Amanda Ruiz, Peter Grace, + $200.00, Partial January rent
+Feb 09 2024, Amanda Ruiz, Peter Grace, + $100.00, Your sweet lovin.
+Mar 03 2024, Amanda Ruiz, Peter Grace, + $80.35, Electric bill
+Apr 03 2024, Amanda Ruiz, Peter Grace, + $465.00, April Rent
+Apr 10 2024, Amanda Ruiz, Peter Grace, + $33.98, Lyft
+Apr 11 2024, Amanda Ruiz, Peter Grace, + $30.00, Lyft
+Apr 18 2024, Peter Grace, Amanda Ruiz, - $20.00, Poop
+Apr 27 2024, Amanda Ruiz, Peter Grace, + $150.00, Partial May rent from Adam
+May 03 2024, Amanda Ruiz, Peter Grace, + $265.00, Adams may rent
+May 10 2024, Amanda Ruiz, Peter Grace, + $75.00, Bills n rent from Adam
+Jun 04 2024, Amanda Ruiz, Peter Grace, + $500.00, June rent 🏠💸
+Jun 04 2024, Amanda Ruiz, Peter Grace, + $50.00, 🎁
+Jun 05 2024, Amanda Ruiz, Peter Grace, + $30.00, Love
+Jun 17 2024, Amanda Ruiz, Peter Grace, + $98.78, 🎉
+Jun 17 2024, Peter Grace, Amanda Ruiz, - $45.00, 🍕
+Jun 19 2024, Amanda Ruiz, Peter Grace, + $85.00, June electric bill
+Jun 20 2024, Amanda Ruiz, Peter Grace, + $100.00, June Wi-Fi
+Jun 20 2024, Amanda Ruiz, Peter Grace, + $80.00, June electric
+Jul 02 2024, Amanda Ruiz, Peter Grace, + $970.00, July rent
+Jul 04 2024, Peter Grace, Amanda Ruiz, - $30.00, 4 J
+Jul 08 2024, Peter Grace, Amanda Ruiz, - $60.00, Stuff
+Jul 08 2024, Amanda Ruiz, Peter Grace, + $20.00, Stuff
+Jul 16 2024, Amanda Ruiz, Peter Grace, + $70.00, Electric bill
+Jul 16 2024, Amanda Ruiz, Peter Grace, + $40.00, Groceries
+Jul 19 2024, Peter Grace, Amanda Ruiz, - $485.00, July rent
+Jul 29 2024, Amanda Ruiz, Peter Grace, + $50.00, Love
+Aug 08 2024, Amanda Ruiz, Peter Grace, + $480.00, August rent
+Aug 13 2024, Amanda Ruiz, Peter Grace, + $25.00, Lyft ride. 🖤
+Nov 01 2024, Amanda Ruiz, Peter Grace, + $483.33, November Rent 🏠💸
