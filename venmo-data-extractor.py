@@ -2,6 +2,7 @@ from sys import exit
 from pathlib import Path
 import csv
 from datetime import datetime
+import re
 
 class VenmoDialect(csv.excel):
     def __init__(self):
@@ -38,8 +39,10 @@ def format_line(l: list[str], cc: list[int]) -> str:
 
     for c in cc[1:]:
         os += f', {l[c]}'
-    os += '\n'
+    rent_mark = '* ' if re.search('rent', l[cc[-1]], re.IGNORECASE) else '  '
+    os = rent_mark + os + '\n'
     return os
+
 
 if __name__ == '__main__':
     csv_files_dir = Path('./csv')
@@ -76,22 +79,20 @@ if __name__ == '__main__':
     columns = [fieldnames.index(field) for field in output_fields]
     # columns = [2, 6, 7, 8, 5]
 
-    summary = 'VENMO TRANSACTIONS BETWEEN @PETER-GRACE-16 AND @AMANDA-RUIZ-139\n'
-    summary += 'FROM FEBRUARY 2023 TO NOVEMBER 2024\n'
-    summary += '\n'
-    summary += '(The source code and data of the following report can be found here:\n'
-    summary += 'https://github.com/petergrace1618/venmo-data-extractor.git)\n'
-    summary += '\n'
-    summary += format_line(lines[0], columns)
-    summary += '-' * 64 + '\n'
+    doc = 'VENMO TRANSACTIONS BETWEEN @PETER-GRACE-16 AND @AMANDA-RUIZ-139\n'
+    doc += 'FROM FEBRUARY 2023 TO NOVEMBER 2024\n'
+    doc += '\n'
+    doc += '(The source code and data can be found here:\n'
+    doc += 'https://github.com/petergrace1618/venmo-data-extractor.git)\n'
+    doc += '\n'
+    doc += format_line(lines[0], columns)
+    doc += '-' * 64 + '\n'
 
     for line in lines[1:]:
-        summary += format_line(line, columns)
+        doc += format_line(line, columns)
 
     # print(summary)
     # Write summary to file
     with open(output_file, 'w', encoding='utf-8') as o:
-        o.write(summary)
-
-    # Append individual csv files by name
+        o.write(doc)
 
