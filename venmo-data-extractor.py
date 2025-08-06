@@ -82,7 +82,7 @@ if __name__ == '__main__':
     doc = 'VENMO TRANSACTIONS BETWEEN @PETER-GRACE-16 AND @AMANDA-RUIZ-139\n'
     doc += 'FROM FEBRUARY 2023 TO NOVEMBER 2024\n'
     doc += '\n'
-    doc += '(The source code and data can be found here:\n'
+    doc += '(For source code and data see:\n'
     doc += 'https://github.com/petergrace1618/venmo-data-extractor.git)\n'
     doc += '\n'
     doc += format_line(lines[0], columns)

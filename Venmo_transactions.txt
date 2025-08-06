@@ -1,7 +1,7 @@
 VENMO TRANSACTIONS BETWEEN @PETER-GRACE-16 AND @AMANDA-RUIZ-139
 FROM FEBRUARY 2023 TO NOVEMBER 2024
 
-(The source code and data of the following report can be found here:
+(For source code and data see:
 https://github.com/petergrace1618/venmo-data-extractor.git)
 
   Datetime, From, To, Amount (total), Note
