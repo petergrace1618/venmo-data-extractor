@@ -103,8 +103,8 @@ if __name__ == '__main__':
     columns = [fieldnames.index(field) for field in output_fields]
     output_header = format_line(transactions[0], columns)
 
-    doc = 'VENMO TRANSACTIONS BETWEEN @PETER-GRACE-16 AND @AMANDA-RUIZ-139\n'
-    doc += 'FROM FEBRUARY 2023 TO NOVEMBER 2024\n'
+    doc = 'Venmo transactions between @PETER-GRACE-16 and @AMANDA-RUIZ-139\n'
+    doc += 'from February 2023 to November 2024\n'
     doc += '\n'
     doc += '(For source code and data see:\n'
     doc += 'https://github.com/petergrace1618/venmo-data-extractor.git)\n'
