@@ -22,21 +22,25 @@ def get_fieldnames(fname) -> list[str]:
         f.readline()
         f.readline()
         header = f.readline()
-    return header.split(',')
+    header = header.split(',')
+    # change 'Amount (total)' to 'Amount' for formating purposes
+    header[8] = 'Amount'
+    return header
 
 
 def format_line(fields: list[str], output_columns: list[int]) -> str:
     global balance
     output_line = ''
+
     try:
         dt = datetime.fromisoformat(fields[output_columns[0]])
         output_line = dt.strftime('%b %d %Y')
     except ValueError:
         # first line is header, so return field name
-        output_line = fields[output_columns[0]]
+        output_line = f'{fields[output_columns[0]]:11}'
 
     for column in output_columns[1:]:
-        output_line += f', {fields[column]}'
+        output_line += f' | {fields[column]:11}'
 
     if re.search('rent', fields[output_columns[-1]], re.IGNORECASE):
         rent_mark = '* '
@@ -69,7 +73,7 @@ if __name__ == '__main__':
     name = 'Amanda Ruiz'
     # holds the balances of non-rent transactions
     balance = 0.0
-    hr = '-' * 64 + '\n'
+    hr = '-' * 80 + '\n'
 
     if len(csv_files) == 0:
         print('No .csv files in', csv_files_dir)
@@ -95,7 +99,7 @@ if __name__ == '__main__':
 
 
     # Get indices of output fields: [2, 6, 7, 8, 5]
-    output_fields = ['Datetime', "From", 'To', 'Amount (total)', 'Note']
+    output_fields = ['Datetime', "From", 'To', 'Amount', 'Note']
     columns = [fieldnames.index(field) for field in output_fields]
     output_header = format_line(transactions[0], columns)
 
