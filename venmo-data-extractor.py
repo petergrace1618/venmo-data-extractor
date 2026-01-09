@@ -17,31 +17,29 @@ class VenmoDialect(csv.excel):
 
 
 def get_fieldnames(fname):
-    f = open(fname, encoding='utf-8')
     # ignore first two lines, header is on third
-    for l in range(3):
+    with open(fname, encoding='utf-8') as f:
+        f.readline()
+        f.readline()
         header = f.readline()
-    f.close()
     return header.split(',')
 
 
-# l contains all fields of transaction
-# cc contains the output fields of transaction
-# os is output string
-def format_line(l: list[str], cc: list[int]) -> str:
-    os = ''
+def format_line(fields: list[str], output_columns: list[int]) -> str:
+    output_line = ''
     try:
-        dt = datetime.fromisoformat(l[cc[0]])
-        os = dt.strftime('%b %d %Y')
+        dt = datetime.fromisoformat(fields[output_columns[0]])
+        output_line = dt.strftime('%b %d %Y')
     except ValueError:
         # first line is header, so return field name
-        os = l[cc[0]]
+        output_line = fields[output_columns[0]]
 
-    for c in cc[1:]:
-        os += f', {l[c]}'
-    rent_mark = '* ' if re.search('rent', l[cc[-1]], re.IGNORECASE) else '  '
-    os = rent_mark + os + '\n'
-    return os
+    for column in output_columns[1:]:
+        output_line += f', {fields[column]}'
+
+    rent_mark = '* ' if re.search('rent', fields[output_columns[-1]], re.IGNORECASE) else '  '
+    output_line = rent_mark + output_line + '\n'
+    return output_line
 
 
 if __name__ == '__main__':
