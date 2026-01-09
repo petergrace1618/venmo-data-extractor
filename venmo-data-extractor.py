@@ -26,6 +26,7 @@ def get_fieldnames(fname) -> list[str]:
 
 
 def format_line(fields: list[str], output_columns: list[int]) -> str:
+    global balance
     output_line = ''
     try:
         dt = datetime.fromisoformat(fields[output_columns[0]])
@@ -37,9 +38,28 @@ def format_line(fields: list[str], output_columns: list[int]) -> str:
     for column in output_columns[1:]:
         output_line += f', {fields[column]}'
 
-    rent_mark = '* ' if re.search('rent', fields[output_columns[-1]], re.IGNORECASE) else '  '
+    if re.search('rent', fields[output_columns[-1]], re.IGNORECASE):
+        rent_mark = '* '
+    else:
+        rent_mark = '  '
+        balance += get_transaction_amount(fields)
+
     output_line = rent_mark + output_line + '\n'
     return output_line
+
+
+# return float value of amount field
+def get_transaction_amount(fields: list[str]) -> float:
+    amount_column_index = 8
+    try:
+        amount_field = fields[amount_column_index]
+        # amount_field ~ /[+-] \$\d+\.\d\d/ e.g. '+ $65.00'
+        amount = float(amount_field[3:])
+        sign = {'+': 1, '-': -1}[amount_field[0]]
+        amount *= sign
+    except ValueError:
+        amount = 0.0
+    return amount
 
 
 if __name__ == '__main__':
@@ -47,6 +67,9 @@ if __name__ == '__main__':
     csv_files = list(csv_files_dir.glob('VenmoStatement*.csv'))
     output_file = 'Venmo_transactions.txt'
     name = 'Amanda Ruiz'
+    # holds the balances of non-rent transactions
+    balance = 0.0
+    hr = '-' * 64 + '\n'
 
     if len(csv_files) == 0:
         print('No .csv files in', csv_files_dir)
@@ -83,10 +106,13 @@ if __name__ == '__main__':
     doc += 'https://github.com/petergrace1618/venmo-data-extractor.git)\n'
     doc += '\n'
     doc += output_header
-    doc += '-' * 64 + '\n'
+    doc += hr
 
     for transaction in transactions[1:]:
         doc += format_line(transaction, columns)
+
+    doc += hr
+    doc += f"Balance of non-rent transactions....${str(balance)}\n"
 
     with open(output_file, 'w', encoding='utf-8') as o:
         o.write(doc)

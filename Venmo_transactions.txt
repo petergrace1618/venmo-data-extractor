@@ -40,3 +40,5 @@ https://github.com/petergrace1618/venmo-data-extractor.git)
 * Aug 08 2024, Amanda Ruiz, Peter Grace, + $480.00, August rent
   Aug 13 2024, Amanda Ruiz, Peter Grace, + $25.00, Lyft ride. 🖤
 * Nov 01 2024, Amanda Ruiz, Peter Grace, + $483.33, November Rent 🏠💸
+----------------------------------------------------------------
+Balance of non-rent transactions....$673.11
